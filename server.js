@@ -2,6 +2,8 @@ const express=require('express');
 const hbs=require('hbs');
 const fs=require('fs');
 
+const port=process.env.PORT || 3000;
+
 let app=express();
 
 app.set('view engine','hbs');
@@ -34,7 +36,7 @@ app.use(express.static(__dirname +"/public"));
 app.get('/',(req,res)=>{
         res.render('home.hbs',{
             welcomeMessage:'Welcome to our amazing website!',
-            pageTitle:'Our amazing home page'
+            pageTitle:'Our very amazing home page'
         });
 });
 
@@ -50,6 +52,8 @@ app.get('/bad',(req,res)=>{
     });
 });
 
-app.listen(3000,()=>{
-    console.log('Server is up on port 3000');
+
+
+app.listen(port,()=>{
+    console.log(`Server is up on port ${port}`);
 });
