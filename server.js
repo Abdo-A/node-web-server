@@ -17,6 +17,7 @@ hbs.registerHelper('screamIt',(text)=>{
     return text.toUpperCase();
 });
 
+
 app.use((req,res,next)=>{
     let date= new Date().toDateString();
     let log=`${date} : ${req.method} : ${req.url}`;
@@ -53,6 +54,11 @@ app.get('/bad',(req,res)=>{
     });
 });
 
+app.get('/projects',(req,res)=>{
+    res.render('projects.hbs',{
+        Title:'Welcome to our projects'
+    });
+})
 
 
 app.listen(port,()=>{
